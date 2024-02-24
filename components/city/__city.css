@@ -1,0 +1,15 @@
+.city__list-item{
+    padding: 1rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all .24s ease;
+    border-bottom: .0625rem solid #0000002b;
+    position: relative;
+    background-color: #ffffffe5;
+    z-index: 20;
+}
+
+.city__list-item:hover{
+    cursor: pointer;
+    background-color: #ffffffd1;
+}
