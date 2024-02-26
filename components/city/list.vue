@@ -1,6 +1,5 @@
 <template>
     <div class="city__list-item">
-        <div class="city__list-item-blur"></div>
         <span class="city__list-item-name">
             {{ props.city.name }}
         </span>,

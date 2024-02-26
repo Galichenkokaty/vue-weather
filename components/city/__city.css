@@ -13,3 +13,110 @@
     cursor: pointer;
     background-color: #ffffffd1;
 }
+
+.city__card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem 1rem;
+    color: white;
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid rgba(43, 43, 43, 0.08);
+    overflow: hidden;
+}
+
+.city__card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.city__card-blur{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 0 3000px rgb(255 255 255 / 18%);
+    filter: blur(1px);
+    background: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+.city__card-name{
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+}
+
+.city__card-temp{
+    display: flex;
+    gap: 1rem;
+}
+
+.city__card-temp-icon{
+    width: 5.5rem;
+}
+
+.city__card-temp-img{
+    position: relative;
+    padding-top: 100%;
+    display: block;
+}
+
+.city__card-temp-img svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.city__card-temp-value{
+    font-size: 5.5rem;
+    line-height: 5.5rem;
+    display: flex;
+    position: relative;
+    gap: 0.25rem;
+}
+
+.city__card-temp-value::after{
+    content: '°';
+    font-size: 3rem;
+    position: absolute;
+    right: -1.25rem;
+    top: -1.5rem;
+}
+
+.city__card-desc{
+    font-size: 1.5rem;
+}
+
+.city__card-feels-like{
+    font-size: 1.0625rem;
+    line-height: 1.25rem;
+    color: #fffffff1;
+}
+
+.city__card-feels-like span{
+    position: relative;
+}
+.city__card-feels-like span:after{
+    content: '°';
+    font-size: 1rem;
+    position: absolute;
+    right: -.5rem;
+    top: -.25rem;
+}
+
+.city__forecast{
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    color: white;
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid rgba(43, 43, 43, 0.08);
+    overflow: hidden;
+    box-sizing: border-box;
+}
