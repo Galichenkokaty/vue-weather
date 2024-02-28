@@ -1,0 +1,72 @@
+
+.forecast__cards{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: white;
+}
+
+.forecast__card{
+    padding: 1rem;
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid rgba(43, 43, 43, 0.08);
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.city__card-date{
+    font-size: 1.25rem;
+}
+
+.forecast__card-hours{
+    display: flex;
+    gap: 1rem;
+}
+
+.forecast__card-hour{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+    flex: 1;
+}
+
+.forecast__card:first-child{
+    display: none;
+}
+
+.forecast__card-hour-icon{
+    width: 2.5rem;
+}
+
+.forecast__card-hour-img{
+    position: relative;
+    padding-top: 100%;
+    display: block;
+}
+
+.forecast__card-hour-img svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.forecast__card-hour-value{
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.forecast__card-hour-value::after{
+    content: '°';
+    font-size: 1rem;
+    position: absolute;
+    right: -.375rem;
+    top: -.125rem;
+}

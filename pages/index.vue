@@ -8,7 +8,7 @@
             <input v-model="citySearch" @input="search" class="search__input" type="text" placeholder="Введите город"/>
             <div class="search__result">
                 <ul v-show="hide === false" class="search__result-city">
-                    <CityList v-for="(city, index) in cities" :city="city" :key="index" @click="getWeather(city)"/>
+                    <CityList v-for="(city, index) in cities" :city="city" :key="index" @click="getWeather(city), hide = true"/>
                 </ul>
             </div>
         </div>
@@ -16,10 +16,7 @@
             <div class="city__cards " @click="hide = true">
                 <CityCard :weatherCity="weatherCity" />
             </div>
-            <div class="city__forecast">
-                <div class="city__card-blur"></div>
-                <CityForecast :weatherFiveDays="weatherFiveDays" />
-            </div>
+            <ForecastCards v-if="weatherFiveDays" :weatherFiveDays="weatherFiveDays" />
         </div>
     </div>
 </template>
@@ -27,24 +24,27 @@
     const keyApi = ref('87895888171177b90a2353c64ee213d5');
     const citySearch = ref();
     let weatherCity;
-    let weatherFiveDays;
     let cities;
-    const hide = ref(true)
-
-    async function getWeather(city){
-        const { data, error } = useFetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${keyApi.value}&lang=ru&units=metric`);
-        const { data2, error2 } = useFetch(`api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${keyApi.value}&lang=ru&units=metric`);
-        //const { data, error } = useFetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${keyApi.value}&lang=ru`);
-
-        weatherCity = data;
-        weatherFiveDays = data2;
-        console.log(data2)
-        hide.value = true;
-    }
-            
-    async function search() {
+    const hide = ref(true);
+    let weatherFiveDays;
+    
+    function search() {
         hide.value = false;
         const { data, error } = useFetch(`http://api.openweathermap.org/geo/1.0/direct?q=${citySearch.value}&limit=10&appid=${keyApi.value}`);
         cities = data;
     }
+
+    function getWeather(city){
+        const { data, error } = useFetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${keyApi.value}&lang=ru&units=metric`);
+        //const { data, error } = useFetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${keyApi.value}&lang=ru`);
+
+        weatherCity = data;
+        getForecast(city)
+    }
+    function getForecast(city){
+        const { data, error } =  useFetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${keyApi.value}&lang=ru&units=metric`);
+
+        weatherFiveDays = data;
+    }
+
 </script>
