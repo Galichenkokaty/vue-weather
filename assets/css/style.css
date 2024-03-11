@@ -87,3 +87,33 @@ ul{
 .--day{
     background: linear-gradient(0deg, rgba(155,219,239,1) 0%, rgba(64,180,217,1) 100%);
 }
+
+
+@media screen and (max-width: 1200px) {
+    .--width50dvw{
+        max-width: 70dvw;
+    }
+    .search__result-city{
+        width: 70dvw;
+    }
+}
+@media screen and (max-width: 900px) {
+    .--width50dvw{
+        max-width: 90dvw;
+    }
+    .search__result-city{
+        width: 90dvw;
+    }
+}
+@media screen and (max-width: 640px) {
+    .--width50dvw{
+        max-width: 100%;
+    }
+    .search__result-city{
+        width: 100%;
+    }
+
+    .main-page{
+        padding: 0 0.5rem;
+    }
+}

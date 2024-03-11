@@ -70,3 +70,16 @@
     right: -.375rem;
     top: -.125rem;
 }
+
+
+@media screen and (max-width: 640px) {
+    .forecast__card-hour{
+        min-width: 4.5rem;
+    }
+
+    .forecast__card-hours{
+        overflow-x: scroll;
+        gap: 0;
+        margin: 0 -1rem;
+    }
+}

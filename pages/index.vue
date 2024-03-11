@@ -36,14 +36,12 @@
 
     function getWeather(city){
         const { data, error } = useFetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${keyApi.value}&lang=ru&units=metric`);
-        //const { data, error } = useFetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${keyApi.value}&lang=ru`);
-
+        
         weatherCity = data;
         getForecast(city)
     }
     function getForecast(city){
         const { data, error } =  useFetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${keyApi.value}&lang=ru&units=metric`);
-
         weatherFiveDays = data;
     }
 

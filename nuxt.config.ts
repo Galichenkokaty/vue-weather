@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     devtools: { enabled: false },
     devServer: {
-        port: 8121,
+        port: 8151,
         host: '0.0.0.0',
     },
     css: ['~/assets/css/style.css'],
